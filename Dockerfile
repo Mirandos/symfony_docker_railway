@@ -11,7 +11,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copie d'abord composer.json et composer.lock
-COPY ./src/composer.json ./src/composer.lock ./
+COPY ./src/composer.json ./
+COPY ./src/composer.lock ./
 
 # Installation des dépendances
 RUN composer install --no-interaction --no-dev --optimize-autoloader
